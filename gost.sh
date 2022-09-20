@@ -2,12 +2,13 @@
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Font_color_suffix="\033[0m"
 Info="${Green_font_prefix}[信息]${Font_color_suffix}"
 Error="${Red_font_prefix}[错误]${Font_color_suffix}"
-shell_version="1.1.0"
+shell_version="1.1.1"
+ct_new_ver="2.11.2" # 2.x 不再跟随官方更新
 gost_conf_path="/etc/gost/config.json"
 raw_conf_path="/etc/gost/rawconf"
 function checknew() {
   checknew=$(gost -V 2>&1 | awk '{print $2}')
-  check_new_ver
+  # check_new_ver
   echo "你的gost版本为:""$checknew"""
   echo -n 是否更新\(y/n\)\:
   read checknewnum
@@ -61,6 +62,7 @@ function check_root() {
   [[ $EUID != 0 ]] && echo -e "${Error} 当前非ROOT账号(或没有ROOT权限)，无法继续操作，请更换ROOT账号或使用 ${Green_background_prefix}sudo su${Font_color_suffix} 命令获取临时ROOT权限（执行后可能会提示输入当前账号的密码）。" && exit 1
 }
 function check_new_ver() {
+  # deprecated
   ct_new_ver=$(wget --no-check-certificate -qO- -t2 -T3 https://api.github.com/repos/ginuerzh/gost/releases/latest | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g;s/v//g')
   if [[ -z ${ct_new_ver} ]]; then
     ct_new_ver="2.11.2"
@@ -89,7 +91,7 @@ function Install_ct() {
   Installation_dependency
   check_file
   check_sys
-  check_new_ver
+  # check_new_ver
   echo -e "若为国内机器建议使用大陆镜像加速下载"
   read -e -p "是否使用？[y/n]:" addyn
   [[ -z ${addyn} ]] && addyn="n"
@@ -875,12 +877,12 @@ update_sh() {
 
 update_sh
 echo && echo -e "                 gost 一键安装配置脚本"${Red_font_prefix}[${shell_version}]${Font_color_suffix}"
-  ------------------------------野猫乐游----------------------------
-             支持系统:  CentOS 6+ / Debian 7+ / Ubuntu 12+       
-  说明：本脚可搭建中转,搭建socks5，搭建ss多功能一体,不会的有偿协助加下方    
-                      野猫乐游微信：yemaoleyou                   
-                      Teddysun电报:@yemaoleyou      
-  中转: (1)tcp+udp不加密转发, (2)中转机加密转发, (3)落地机解密对接转发
+------------------------------野猫乐游----------------------------
+支持系统： CentOS 6+ / Debian 7+ / Ubuntu 12+
+说明：本脚可搭建中转，搭建socks5，搭建ss多功能一体，不会的有偿协助加下方
+野猫乐游微信：yemaoleyou
+泰迪松电报：@yemaoleyou
+中转： （1）tcp+udp不加密转发， （2）中转机加密转发， （3）落地机解密对接转发
   -----------------------------------------------------------------
 
  ${Green_font_prefix}1.${Font_color_suffix} 安装 gost
