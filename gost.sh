@@ -876,7 +876,7 @@ update_sh() {
 }
 
 update_sh
-echo && echo -e "                 gost 一键安装配置脚本"${Red_font_prefix}[${shell_version}]${Font_color_suffix}"
+echo && echo -e "                 gost 一键安装配置脚本当前版本为最新版本！
 ------------------------------野猫乐游----------------------------
 支持系统： CentOS 6+ / Debian 7+ / Ubuntu 12+
 说明：本脚可搭建中转，搭建socks5，搭建ss多功能一体，不会的有偿协助加下方
