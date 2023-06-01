@@ -558,7 +558,7 @@ function proxy() {
   echo -e "请问您要设置的代理类型: "
   echo -e "-----------------------------------"
   echo -e "[1] shadowsocks"
-  echo -e "[2] socks5(强烈建议加隧道用于Telegram代理)"
+  echo -e "[2] socks5"
   echo -e "-----------------------------------"
   read -p "请选择代理类型: " numproxy
   if [ "$numproxy" == "1" ]; then
@@ -878,10 +878,10 @@ update_sh() {
 update_sh
 echo && echo -e "                 gost 一键安装配置脚本当前版本为最新版本！
 ------------------------------野猫乐游----------------------------
-支持系统： CentOS 6+ / Debian 7+ / Ubuntu 12+
+支持系统： CentOS 6+ / Debian 7+ / Ubuntu 12+    更新时间:2023-6-1
 说明：本脚可搭建中转，搭建socks5，搭建ss多功能一体，不会的有偿协助加下方
 
-野猫乐游微信：yemaoleyou 飞机电报：@yemaoleyou  网站:www.yemaoleyou.ga 
+野猫乐游微信：yemaoleyou 飞机电报：@yemaoleyoushi 网站:www.yemaoleyou.ga 
 
 中转：（1）tcp+udp不加密转发，（2）中转机加密转发，（3）落地机解密对接转发
 -----------------------------------------------------------------
